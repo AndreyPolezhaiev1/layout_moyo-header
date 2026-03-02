@@ -56,17 +56,17 @@ body {
   font-size: 12px;
 }
 
-.nav-link-blue {
+.nav-link--highlight {
   color: var(--main-blue);
 }
 
 .nav-link:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--main-blue);
+  color: var(--main-blue);
 }
 
 .is-active {
   position: relative;
+  color: var(--main-blue);
 }
 
 .is-active::after {
@@ -80,3 +80,6 @@ body {
   right: 0;
 }
 
+.nav-link:hover {
+  text-decoration: none;
+}
