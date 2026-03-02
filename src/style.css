@@ -1,98 +1,88 @@
-:root {
-  --main-blue: #00acdc;
-}
-
 html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+  font-family: Roboto, Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, sans-serif;
-  font-weight: 500;
-  line-height: 1;
+  box-sizing: border-box;
+
+  --header-color: #fff;
+  --text-color: #000;
+  --selected-color: #00acdc;
+  --header-font-size: 12px;
+  --header-height: 60px;
 }
 
 .header {
+  box-sizing: border-box;
+  background-color: var(--header-color);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  justify-content: space-between;
+  padding: 0 50px;
 }
 
 .logo {
-  margin-left: 50px;
-}
-
-.logo__link {
-  display: flex;
-  align-items: center;
-  height: 60px;
-}
-
-.logo__img {
-  display: block; /* Убирает лишний дефолтный отступ снизу */
-  max-height: 100%;
-}
-
-.nav {
-  margin-right: 50px;
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  padding: 0;
+  display: block;
+  height: 40px;
+  width: 40px;
   margin: 0;
 }
 
-.nav-item {
-  margin-right: 20px;
+.image {
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
+  height: 40px;
+  width: 40px;
 }
 
-.nav-item:last-child {
-  margin-right: 0;
+.nav {
+  margin: 0;
 }
 
-.nav-link {
-  height: 60px;
-  color: #000;
-  padding: 0;
-  text-decoration: none;
+.nav__list {
+  margin: 0 auto;
   display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__link {
   align-items: center;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.nav-link--highlight {
-  color: var(--main-blue);
-}
-
-.nav-link:hover {
-  color: var(--main-blue);
-  text-decoration: none;
-}
-
-.is-active {
+  display: inline-flex;
   position: relative;
-  color: var(--main-blue);
+  height: var(--header-height);
+  color: var(--text-color);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: var(--header-font-size);
 }
 
-.is-active::after {
+.nav__link:hover {
+  color: var(--selected-color);
+}
+
+.nav__link:active {
+  color: var(--selected-color);
+}
+
+.nav__link.is-active {
+  color: var(--selected-color);
+}
+
+.nav__link.is-active::after {
   content: '';
   position: absolute;
-  background-color: var(--main-blue);
-  height: 4px;
-  border-radius: 2px 2px 0 0;
-  bottom: 0;
   left: 0;
-  right: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--selected-color);
+  border-radius: 8px;
+}
+
+.nav__item:not(:first-child) {
+  margin-left: 20px;
 }
